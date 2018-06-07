@@ -1,9 +1,9 @@
 <html>
 <head>
-    <META http-equiv="Content-Type" content="text/html; charset=x-sjis">
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>MyHome</title>
     <script language="javascript">
-        // ƒL[ƒ{[ƒh‚Ìƒtƒ‰ƒO@i1 : ‰Ÿ‚³‚ê‚Ä‚¢‚é / 0 : —£‚³‚ê‚Ä‚¢‚éj
+        // ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ãƒ•ãƒ©ã‚°ã€€ï¼ˆ1 : æŠ¼ã•ã‚Œã¦ã„ã‚‹ / 0 : é›¢ã•ã‚Œã¦ã„ã‚‹ï¼‰
         var left = 0;
         var up = 0;
         var right = 0;
@@ -20,9 +20,9 @@
         var HmaxY = 4;
 
 
-        /********** ƒL[ƒ{[ƒh‚ÌƒCƒxƒ“ƒgi‰Ÿ‚³‚ê‚½j **********/
+        /********** ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ã‚¤ãƒ™ãƒ³ãƒˆï¼ˆæŠ¼ã•ã‚ŒãŸï¼‰ **********/
 
-        function keydown(event) // ‰Ÿ‚³‚ê‚½ƒL[‚Ìƒtƒ‰ƒO‚ğ@‚P@‚É‚·‚é
+        function keydown(event) // æŠ¼ã•ã‚ŒãŸã‚­ãƒ¼ã®ãƒ•ãƒ©ã‚°ã‚’ã€€ï¼‘ã€€ã«ã™ã‚‹
         {
             if (event.keyCode == 37 || event.keyCode == 72) //left key
             {
@@ -71,7 +71,7 @@
         }
 
 
-        function disp() // ƒL[ƒ{[ƒh“ü—Í‚ğ”½‰f‚µ‚Ä•\¦À•W‚ğXV
+        function disp() // ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰å…¥åŠ›ã‚’åæ˜ ã—ã¦è¡¨ç¤ºåº§æ¨™ã‚’æ›´æ–°
         {
             if (!(selectX == preSelectX && selectY == preSelectY)) {
                 document.getElementById(100 * selectY + selectX).style.color = "white";
@@ -169,9 +169,9 @@
             }
         }
 
-        /********** ƒL[ƒ{[ƒh‚ÌƒCƒxƒ“ƒgi—£‚³‚ê‚½j **********/
+        /********** ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®ã‚¤ãƒ™ãƒ³ãƒˆï¼ˆé›¢ã•ã‚ŒãŸï¼‰ **********/
 
-        function keyup(event) // —£‚³‚ê‚½ƒL[‚Ìƒtƒ‰ƒO‚ğ@‚O@‚É‚·‚é
+        function keyup(event) // é›¢ã•ã‚ŒãŸã‚­ãƒ¼ã®ãƒ•ãƒ©ã‚°ã‚’ã€€ï¼ã€€ã«ã™ã‚‹
         {
             if (event.keyCode == 37 || event.keyCode == 72) //left key
             {
@@ -197,7 +197,7 @@
         //location.reload();
         function reloadCheck() {
             if (window.name != "reloadFlag") {
-                //alert("ƒŠƒ[ƒh‚µ‚Ü‚µ‚½");
+                //alert("ãƒªãƒ­ãƒ¼ãƒ‰ã—ã¾ã—ãŸ");
                 //location.reload();
                 window.name = "reloadFlag";
             }
@@ -213,7 +213,7 @@
         var month = dt.getMonth() + 1;
         var day = dt.getDate();
         var year = dt.getFullYear();
-        var dateT = ["“ú","Œ","‰Î","…","–Ø","‹à","“y"];
+        var dateT = ["æ—¥","æœˆ","ç«","æ°´","æœ¨","é‡‘","åœŸ"];
         document.write('' + year + '-' + month + '-' + day + ' (' + dateT[dt.getDay()] + ')');
     </script>
 <h2>BookMarks</h2>
@@ -306,31 +306,31 @@
         <td>
             <div id=200>
                 [200]-
-                <a href="https://gakujo.shizuoka.ac.jp/portal/">Šwî</a>-
+                <a href="https://gakujo.shizuoka.ac.jp/portal/">å­¦æƒ…</a>-
             </div>
         </td>
         <td>
             <div id=201>
                 [201]-
-                <a href="http://www.shizuoka.ac.jp/index.html">Ã‘å</a>-
+                <a href="http://www.shizuoka.ac.jp/index.html">é™å¤§</a>-
             </div>
         </td>
         <td>
             <div id=202>
                 [202]-
-                <a href="http://www.inf.shizuoka.ac.jp/">Ã‘åî•ñŠw•”</a>-
+                <a href="http://www.inf.shizuoka.ac.jp/">é™å¤§æƒ…å ±å­¦éƒ¨</a>-
             </div>
         </td>
         <td>
             <div id=203>
                 [203]-
-                <a href="https://gakujo.shizuoka.ac.jp/kyoumu/sso/loginStudent.do">‹³–±ƒVƒXƒeƒ€</a>-
+                <a href="https://gakujo.shizuoka.ac.jp/kyoumu/sso/loginStudent.do">æ•™å‹™ã‚·ã‚¹ãƒ†ãƒ </a>-
             </div>
         </td>
         <td>
             <div id=204>
                 [204]-
-                <a href="http://www.lib.shizuoka.ac.jp/">}‘ŠÙ</a>-
+                <a href="http://www.lib.shizuoka.ac.jp/">å›³æ›¸é¤¨</a>-
             </div>
         </td>
     </tr>
@@ -344,7 +344,7 @@
         <td>
             <div id=301>
                 [301]-
-                <a href="https://chiebukuro.yahoo.co.jp/">’mŒb‘Ü</a>-
+                <a href="https://chiebukuro.yahoo.co.jp/">çŸ¥æµè¢‹</a>-
             </div>
         </td>
         <td>
@@ -401,8 +401,8 @@
 </TABLE>
 <h2>History</h2>
 <script language="javascript">
-        document.onkeydown = keydown; // ƒCƒxƒ“ƒgŒŸo
-        document.onkeyup = keyup; // ƒCƒxƒ“ƒgŒŸo
+        document.onkeydown = keydown; // ã‚¤ãƒ™ãƒ³ãƒˆæ¤œå‡º
+        document.onkeyup = keyup; // ã‚¤ãƒ™ãƒ³ãƒˆæ¤œå‡º
     </script>
 </body>
 
