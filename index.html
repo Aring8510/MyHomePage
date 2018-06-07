@@ -1,0 +1,410 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=x-sjis">
+    <title>MyHome</title>
+    <script language="javascript">
+        // キーボードのフラグ　（1 : 押されている / 0 : 離されている）
+        var left = 0;
+        var up = 0;
+        var right = 0;
+        var down = 0;
+        var space = 0;
+
+        var selectX = 0;
+        var selectY = 0;
+        var preSelectX = 0;
+        var preSelectY = 0;
+        var BmaxX = 4;
+        var BmaxY = 4;
+        var HmaxX = 1;
+        var HmaxY = 4;
+
+        var link =
+
+        /********** キーボードのイベント（押された） **********/
+
+        function keydown(event) // 押されたキーのフラグを　１　にする
+        {
+            if (event.keyCode == 37 || event.keyCode == 72) //left key
+            {
+                left = 1;
+                if (selectX != 0) {
+                    selectX -= 1;
+                }
+            }
+            if (event.keyCode == 38 || event.keyCode == 75) //up key
+            {
+                up = 1;
+                if (selectY != 0) {
+                    selectY -= 1;
+                }
+            }
+            if (event.keyCode == 39 || event.keyCode == 76) //right key
+            {
+                right = 1;
+                if (selectX != BmaxX) {
+                    selectX += 1;
+                }
+            }
+            if (event.keyCode == 40 || event.keyCode == 74) //down key
+            {
+                down = 1;
+                if (selectY != BmaxY) {
+                    selectY += 1;
+                }
+            }
+            if (event.keyCode == 87 || event.keyCode == 35) {
+                selectX = BmaxX;
+            }
+            if (event.keyCode == 66 || event.keyCode == 36) {
+                selectX = 0;
+            }
+            if (event.keyCode == 68 || event.keyCode == 34) {
+                selectY = BmaxY;
+            }
+            if (event.keyCode == 85 || event.keyCode == 33) {
+                selectY = 0;
+            }
+            if (event.keyCode == 79 || event.keyCode == 13) {
+                enter();
+            }
+            disp();
+        }
+
+
+        function disp() // キーボード入力を反映して表示座標を更新
+        {
+            if (!(selectX == preSelectX && selectY == preSelectY)) {
+                document.getElementById(100 * selectY + selectX).style.color = "white";
+                document.getElementById(100 * selectY + selectX).style.backgroundColor = "#1e90ff";
+                document.getElementById(100 * preSelectY + preSelectX).style.color = "black";
+                document.getElementById(100 * preSelectY + preSelectX).style.backgroundColor = "#87cefa";
+                if (selectY > BmaxY) {
+                    document.getElementById("tukue").style.fontSize = 0.5;
+                    document.getElementById("tukue").style.height = 75;
+                }
+                preSelectX = selectX;
+                preSelectY = selectY;
+
+            }
+        }
+        function enter() {
+            switch (100 * selectY + selectX) {
+                case 0:
+                    document.location.href = "https://mail.google.com/mail/u/0/#inbox";
+                    break;
+                case 1:
+                    document.location.href = "https://drive.google.com/drive/my-drive";
+                    break;
+                case 2:
+                    document.location.href = "https://calendar.google.com";
+                    break;
+                case 3:
+                    document.location.href = "https://translate.google.co.jp/?hl=ja&tab=TT";
+                    break;
+                case 4:
+                    document.location.href = "https://www.google.co.jp";
+                    break;
+                case 100:
+                    document.location.href = "https://www.youtube.com";
+                    break;
+                case 101:
+                    document.location.href = "https://keep.google.com";
+                    break;
+                case 102:
+                    document.location.href = "https://www.google.com/maps";
+                    break;
+                case 103:
+                    document.location.href = "https://photos.google.com/?pageId=none";
+                    break;
+                case 104:
+                    document.location.href = "https://www.google.co.jp";
+                    break;
+                case 200:
+                    document.location.href = "https://gakujo.shizuoka.ac.jp/portal/";
+                    break;
+                case 201:
+                    document.location.href = "http://www.shizuoka.ac.jp/index.html";
+                    break;
+                case 202:
+                    document.location.href = "http://www.inf.shizuoka.ac.jp/";
+                    break;
+                case 203:
+                    document.location.href = "https://gakujo.shizuoka.ac.jp/kyoumu/sso/loginStudent.do";
+                    break;
+                case 204:
+                    document.location.href = "http://www.lib.shizuoka.ac.jp/";
+                    break;
+                case 300:
+                    document.location.href = "https://github.com/";
+                    break;
+                case 301:
+                    document.location.href = "https://chiebukuro.yahoo.co.jp/";
+                    break;
+                case 302:
+                    document.location.href = "http://www.nicovideo.jp/";
+                    break;
+                case 303:
+                    document.location.href = "https://twitter.com/";
+                    break;
+                case 304:
+                    document.location.href = "https://www.e-typing.ne.jp/";
+                    break;
+                case 400:
+                    document.location.href = "https://www.amazon.co.jp/";
+                    break;
+                case 401:
+                    document.location.href = "https://trello.com/";
+                    break;
+                /*
+            case :
+                document.location.href = "";
+                break;
+            case :
+                document.location.href = "";
+                break;
+            case :
+                document.location.href = "";
+                break;
+                */
+            }
+        }
+
+        /********** キーボードのイベント（離された） **********/
+
+        function keyup(event) // 離されたキーのフラグを　０　にする
+        {
+            if (event.keyCode == 37 || event.keyCode == 72) //left key
+            {
+                left = 0;
+            }
+            if (event.keyCode == 38 || event.keyCode == 75) //up key
+            {
+                up = 0;
+            }
+            if (event.keyCode == 39 || event.keyCode == 76) //right key
+            {
+                right = 0;
+            }
+            if (event.keyCode == 40 || event.keyCode == 74) //down key
+            {
+                down = 0;
+            }
+        }
+    </script>
+</head>
+<body bgcolor="#87cefa" onLoad="reloadCheck()">
+<script>
+        //location.reload();
+        function reloadCheck() {
+            if (window.name != "reloadFlag") {
+                //alert("リロードしました");
+                //location.reload();
+                window.name = "reloadFlag";
+            }
+        }
+    </script>
+
+<h1>
+    <div style="text-align:center;">MyHome</div>
+</h1>
+<h2>Data</h2>
+<script>
+        var dt = new Date();
+        var month = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var year = dt.getFullYear();
+        var dateT = ["日","月","火","水","木","金","土"];
+        document.write('' + year + '-' + month + '-' + day + ' (' + dateT[dt.getDay()] + ')');
+    </script>
+<h2>BookMarks</h2>
+<style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            border: solid 2px;
+            padding: 0.2em;
+        }
+
+        table.s {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table.s td:hover {
+            border: solid red 3px;
+            padding: 0.2em;
+        }
+    </style>
+<table id="tukue" class="s" height=200px fontSize=1em>
+    <tr>
+        <td>
+            <div id=0>
+                [0]-
+                <a href="https://mail.google.com/mail/u/0/#inbox">g_mail</a>-
+            </div>
+        </td>
+        <td>
+            <div id=1>
+                [1]-
+                <a href="https://drive.google.com/drive/my-drive">g_drive</a>-
+            </div>
+        </td>
+        <td>
+            <div id=2>
+                [2]-
+                <a href="https://calendar.google.com">g_calendar</a>-
+            </div>
+        </td>
+        <td>
+            <div id=3>
+                [3]-
+                <a href="https://translate.google.co.jp/?hl=ja&tab=TT">g_dictionary</a>-
+            </div>
+        </td>
+        <td>
+            <div id=4>
+                [4]-
+                <a href="https://www.google.co.jp">google</a>-
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id=100>
+                [100]-
+                <a href="https://www.youtube.com">youtube</a>-
+            </div>
+        </td>
+        <td>
+            <div id=101>
+                [101]-
+                <a href="https://keep.google.com">keep</a>-
+            </div>
+        </td>
+        <td>
+            <div id=102>
+                [102]-
+                <a href="https://www.google.com/maps">g_map</a>-
+            </div>
+        </td>
+        <td>
+            <div id=103>
+                [103]-
+                <a href="https://photos.google.com/?pageId=none">g_photo</a>-
+            </div>
+        </td>
+        <td>
+            <div id=104>
+                [104]-
+                <a href="https://www.google.co.jp">google</a>-
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id=200>
+                [200]-
+                <a href="https://gakujo.shizuoka.ac.jp/portal/">学情</a>-
+            </div>
+        </td>
+        <td>
+            <div id=201>
+                [201]-
+                <a href="http://www.shizuoka.ac.jp/index.html">静大</a>-
+            </div>
+        </td>
+        <td>
+            <div id=202>
+                [202]-
+                <a href="http://www.inf.shizuoka.ac.jp/">静大情報学部</a>-
+            </div>
+        </td>
+        <td>
+            <div id=203>
+                [203]-
+                <a href="https://gakujo.shizuoka.ac.jp/kyoumu/sso/loginStudent.do">教務システム</a>-
+            </div>
+        </td>
+        <td>
+            <div id=204>
+                [204]-
+                <a href="http://www.lib.shizuoka.ac.jp/">図書館</a>-
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id=300>
+                [300]-
+                <a href="https://github.com/">GitHub</a>-
+            </div>
+        </td>
+        <td>
+            <div id=301>
+                [301]-
+                <a href="https://chiebukuro.yahoo.co.jp/">知恵袋</a>-
+            </div>
+        </td>
+        <td>
+            <div id=302>
+                [302]-
+                <a href="http://www.nicovideo.jp/">niconico</a>-
+            </div>
+        </td>
+        <td>
+            <div id=303>
+                [303]-
+                <a href="https://twitter.com/">twitter</a>-
+            </div>
+        </td>
+        <td>
+            <div id=304>
+                [304]-
+                <a href="https://www.e-typing.ne.jp/">E-typing</a>-
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id=400>
+                [400]-
+                <a href="https://www.amazon.co.jp/">amazon</a>-
+            </div>
+        </td>
+        <td>
+            <div id=401>
+                [401]-
+                <a href="https://trello.com/">trello</a>-
+            </div>
+        </td>
+        <td>
+            <div id=402>
+                [402]-
+                <a href=""></a>-
+            </div>
+        </td>
+        <td>
+            <div id=403>
+                [403]-
+                <a href=""></a>-
+            </div>
+        </td>
+        <td>
+            <div id=404>
+                [404]-
+                <a href=""></a>-
+            </div>
+        </td>
+    </tr>
+</TABLE>
+<h2>History</h2>
+<script language="javascript">
+        document.onkeydown = keydown; // イベント検出
+        document.onkeyup = keyup; // イベント検出
+    </script>
+</body>
+
+</html>
