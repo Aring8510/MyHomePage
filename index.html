@@ -117,7 +117,7 @@
                     document.location.href = "https://photos.google.com/?pageId=none";
                     break;
                 case 104:
-                    document.location.href = "https://www.google.co.jp";
+                    document.location.href = "https://www.google.co.jp/imghp?hl=ja&tab=wi&authuser=0";
                     break;
                 case 200:
                     document.location.href = "https://gakujo.shizuoka.ac.jp/portal/";
@@ -242,7 +242,7 @@
         <td>
             <div id=0>
                 [0]-
-                <a href="https://mail.google.com/mail/u/0/#inbox">g_mail</a>-
+                <a href="https://mail.google.com/mail/u/0/#inbox" id="firstFocus">g_mail</a>-
             </div>
         </td>
         <td>
@@ -298,7 +298,7 @@
         <td>
             <div id=104>
                 [104]-
-                <a href="https://www.google.co.jp">google</a>-
+                <a href="https://www.google.co.jp">google画像検索</a>-
             </div>
         </td>
     </tr>
@@ -401,6 +401,8 @@
 </TABLE>
 <h2>History</h2>
 <script language="javascript">
+        var f = document.getElementById("firstFocus");
+        //f.focus();
         document.onkeydown = keydown; // イベント検出
         document.onkeyup = keyup; // イベント検出
     </script>
