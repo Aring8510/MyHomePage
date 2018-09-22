@@ -1,7 +1,2 @@
 # MyHomePage
-
-##　用途
-自分用のブラウザのホームや新しいタブに設定しておくHTMLファイル
-## 機能と操作
-hjklでカーソル移動
-oで移動
+https://aring8510.github.io/MyHomePage/
